@@ -1,0 +1,45 @@
+@import '../../../localLibrary/css/common.css';
+
+:root {
+    --background-color: #333;
+    --bg-white: #eee;
+    --border: #afafaf;
+}
+
+.login-form {   
+    display: flex;
+    flex-direction: column;
+    /* background-color: var(--bg-white); */
+    border: 1px solid #333;
+    border-radius: 4px;
+    padding: 16px;
+    gap: 8px;
+}
+
+input {
+    width: 240px;
+    height: 32px;
+    border: 1px solid #333;
+    border-radius: 4px;
+}
+
+input + p {
+    height: 16px;
+}
+
+.login-form__submit {
+    width: 240px;
+    text-align: center;
+    background-color: rgb(121, 171, 121);
+    padding: 8px 0;
+    border-radius: 4px;
+}
+
+.login-form__submit:hover {
+    background-color: rgb(178, 215, 178);
+}
+
+.login-form__submit:disabled {
+    background-color: #afafaf;
+    color: white;
+}
