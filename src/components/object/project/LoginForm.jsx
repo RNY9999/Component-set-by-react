@@ -1,5 +1,6 @@
 // import React, { useState } from 'react';
 import { useForm, SubmitHandler } from "react-hook-form";
+import './css/loginForm.css';
 
 // import Button from '../component/Button';
 // import Form from '../component/Form';
@@ -18,11 +19,14 @@ const LoginForm = () => {
     console.log(`errors:${isValid}`);
     return (
     <>
-        <form className='login-form' action="" onSubmit={handleSubmit(onSubmit)}>
+        <form className='login-form' action="#" onSubmit={handleSubmit(onSubmit)}>
             <label htmlFor="userName">ユーザーネーム</label>
-            <input className='login-form__user-name' id='userName' type="text" {
+            <input
+                className='login-form__user-name' 
+                id='userName' 
+                type="text" {
                 ...register('userName', {
-                    required: 'required user name',
+                    required: 'ユーザーネームを入力してください。',
                     minLength: {
                         value: 4,
                         message: '4文字以上で入力してください。'
@@ -37,12 +41,20 @@ const LoginForm = () => {
                 {errors?.userName?.message}
             </p>
             <label htmlFor="userPassword">パスワード</label>
-            <input className='login-form__user-pass' id='userPassword'   type="password" {...register('userPassword', {required: 'required password'})}/>
+            <input 
+                className='login-form__user-pass' 
+                id='userPassword'
+                type="password" {
+                    ...register('userPassword', {
+                        required: 'パスワードを入力してください。   '
+                    })
+                }
+            />
             <p>
                 {errors?.userPassword?.message}
             </p>
             {console.log(errors.userPassword)}
-            <button className='login-form__submit' type='submit' disabled={!isValid}>ログイン</button>
+            <button formAction="/chatSample" className='login-form__submit' type='submit' disabled={!isValid}>ログイン</button>
         </form>
     </>
     )
