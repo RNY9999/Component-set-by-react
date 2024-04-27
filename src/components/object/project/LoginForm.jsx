@@ -1,5 +1,5 @@
 // import React, { useState } from 'react';
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import './css/loginForm.css';
 
 // import Button from '../component/Button';
@@ -7,19 +7,27 @@ import './css/loginForm.css';
 
 // import { handleInputChange } from '../../localLibrary/formLib';
 
+
 const LoginForm = () => {
+    // const history = useHistory();
     const {
         register,
         handleSubmit,
         watch,
         formState: { errors, isValid },
-    } = useForm();
+    } = useForm({mode: onchange});
 
-    const onSubmit = (data) => console.log(data);
-    console.log(`errors:${isValid}`);
+    const onSubmit = (data) => {
+        // history.pushState('/chat');
+        console.log(data);
+    };
+    // console.log(`errors:${isValid}`);
+    // console.log(watch("example"));
+
     return (
     <>
-        <form className='login-form' action="#" onSubmit={handleSubmit(onSubmit)}>
+        <form className='login-form' action="/chat" method="get" onSubmit={handleSubmit(onSubmit)}>
+        {/* <form className='login-form' action="/chat" method="post" onChange={handleSubmit(onSubmit)}> */}
             <label htmlFor="userName">ユーザーネーム</label>
             <input
                 className='login-form__user-name' 
@@ -53,8 +61,7 @@ const LoginForm = () => {
             <p>
                 {errors?.userPassword?.message}
             </p>
-            {console.log(errors.userPassword)}
-            <button formAction="/chatSample" className='login-form__submit' type='submit' disabled={!isValid}>ログイン</button>
+            <button className='login-form__submit' type='submit' disabled={!isValid}>ログイン</button>
         </form>
     </>
     )

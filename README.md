@@ -19,3 +19,7 @@ gitignoreに/node_modulesを加えるのを忘れると大変なことになり�
 参考サイト：https://react-hook-form.com/get-started
 
 `npm install react-hook-form`
+
+## react-router-dom install手順
+
+`npm install react-router-dom`
